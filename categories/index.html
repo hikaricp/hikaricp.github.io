@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>Categories | 杨佳畅的博客</title>
-    <meta property="og:title" content="Categories - 杨佳畅的博客">
+    <title>分类 | 杨佳畅的博客</title>
+    <meta property="og:title" content="分类 - 杨佳畅的博客">
     <meta property="og:type" content="article">
         
         
     <meta name="Keywords" content="">
-    <meta name="description" content="Categories">
+    <meta name="description" content="Java开发">
         
     <meta name="author" content="杨佳畅">
     <meta property="og:url" content="https://hikaricp.github.io/categories/">
@@ -21,7 +21,6 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://hikaricp.github.io/categories/index.xml" title="杨佳畅的博客" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -50,8 +49,6 @@
                     
                     <a  href="https://hikaricp.github.io/archives/" title="归档">归档</a>
                     
-                    <a class="current" href="https://hikaricp.github.io/categories/" title="分类">分类</a>
-                    
                     <a  href="https://hikaricp.github.io/about/" title="关于">关于</a>
                     
                 </nav>
@@ -66,77 +63,137 @@
 
                 <div class="col-8" id="main">
                     
-<header>
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents"></nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">分类</h1>
+        </header>
+        <date class="post-meta meta-date">
+            1年1月1日
+        </date>
+        
+        
+        
+        <div class="post-content">
+            
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
     
-    <h1>共有5个分类</h1>
     
-</header>
-<div class="post-archive">
+
     
-    <h2>
-        <a href="https://hikaricp.github.io/categories/go" target="_blank">go</a>
-        (1)
-    </h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2022/07/30</span>
-            <a href="https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="Go语言基础" target="_blank">Go语言基础</a>
-        </li>
-        
-    </ul>
     
-    <h2>
-        <a href="https://hikaricp.github.io/categories/java" target="_blank">java</a>
-        (1)
-    </h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2022/07/30</span>
-            <a href="https://hikaricp.github.io/post/springboot/" title="SpringBoot实战" target="_blank">SpringBoot实战</a>
-        </li>
-        
-    </ul>
     
-    <h2>
-        <a href="https://hikaricp.github.io/categories/spring" target="_blank">spring</a>
-        (1)
-    </h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2022/07/30</span>
-            <a href="https://hikaricp.github.io/post/springboot/" title="SpringBoot实战" target="_blank">SpringBoot实战</a>
-        </li>
-        
-    </ul>
-    
-    <h2>
-        <a href="https://hikaricp.github.io/categories/springboot" target="_blank">springboot</a>
-        (1)
-    </h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2022/07/30</span>
-            <a href="https://hikaricp.github.io/post/springboot/" title="SpringBoot实战" target="_blank">SpringBoot实战</a>
-        </li>
-        
-    </ul>
-    
-    <h2>
-        <a href="https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80" target="_blank">第一</a>
-        (1)
-    </h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2022/07/30</span>
-            <a href="https://hikaricp.github.io/post/first/" title="我的第一篇文章" target="_blank">我的第一篇文章</a>
-        </li>
-        
-    </ul>
     
 
 </div>
@@ -161,6 +218,17 @@
 </footer>
 
 
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
@@ -195,56 +263,6 @@
     
     <li>
         <a href="https://hikaricp.github.io/post/first/" title="我的第一篇文章" target="_blank">我的第一篇文章</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://hikaricp.github.io/categories/go/">Go (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/java/">Java (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/spring/">Spring (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/springboot/">SpringBoot (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/">第一 (1)</a></li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://hikaricp.github.io/tags/golang/">golang</a>
-    
-    <a href="https://hikaricp.github.io/tags/spring/">Spring</a>
-    
-</div>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="https://hikaricp.github.io/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>t/" title="我的第一篇文章" target="_blank">我的第一篇文章</a>
     </li>
     
 </ul>
