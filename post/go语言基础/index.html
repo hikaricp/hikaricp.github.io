@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <title>Go语言基础 | 杨佳畅的博客</title>
+    <meta property="og:title" content="Go语言基础 - 杨佳畅的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2022-07-30T00:32:34&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2022-07-30T00:32:34&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="Go语言基础">
+        
+    <meta name="author" content="杨佳畅">
+    <meta property="og:url" content="https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://hikaricp.github.io/">
+                        杨佳畅的博客
+                    </a>
+                
+                <p class="description">以人为镜可以明得失，以代码为镜可以通逻辑</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://hikaricp.github.io/">首页</a>
+                    
+                    <a  href="https://hikaricp.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://hikaricp.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://hikaricp.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#初始化">初始化</a></li>
+    <li><a href="#加载">加载</a></li>
+    <li><a href="#销毁">销毁</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if (leftPos < 220) {
+                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+
+        if ($("#TableOfContents").children().length < 1) {
+            $(".post-toc").remove();
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">Go语言基础</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2022年7月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category">
+                <a href='/categories/go' target="_blank">Go</a>
+            </span>
+            
+        </div>
+        
+        
+        
+        <div class="post-content">
+            <h2 id="初始化">初始化</h2>
+<p>初始化阶段</p>
+<h2 id="加载">加载</h2>
+<p>加载阶段</p>
+<h2 id="销毁">销毁</h2>
+<p>销毁阶段</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000;font-weight:bold">package</span> main
+
+<span style="color:#000;font-weight:bold">import</span> (
+    <span style="color:#d14">&#34;fmt&#34;</span>
+    <span style="color:#d14">&#34;math/rand&#34;</span>
+    <span style="color:#d14">&#34;time&#34;</span>
+)
+
+<span style="color:#000;font-weight:bold">type</span> Moo <span style="color:#000;font-weight:bold">struct</span> {
+    Cow   <span style="color:#458;font-weight:bold">int</span>
+    Sound <span style="color:#458;font-weight:bold">string</span>
+    Tube  <span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">bool</span>
+}
+
+<span style="color:#998;font-style:italic">// A cow will moo until it is being fed
+</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">cow</span>(num <span style="color:#458;font-weight:bold">int</span>, mootube <span style="color:#000;font-weight:bold">chan</span> Moo) {
+    tube <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">bool</span>)
+    <span style="color:#000;font-weight:bold">for</span> {
+        <span style="color:#000;font-weight:bold">select</span> {
+        <span style="color:#000;font-weight:bold">case</span> mootube <span style="color:#000;font-weight:bold">&lt;-</span> Moo{num, <span style="color:#d14">&#34;moo&#34;</span>, tube}:
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;mooed through the mootube&#34;</span>)
+            <span style="color:#000;font-weight:bold">&lt;-</span>tube
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;is being fed and stops mooing&#34;</span>)
+            mootube <span style="color:#000;font-weight:bold">&lt;-</span> Moo{num, <span style="color:#d14">&#34;mooh&#34;</span>, <span style="color:#000;font-weight:bold">nil</span>}
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;moos one last time out of happyness&#34;</span>)
+            <span style="color:#000;font-weight:bold">return</span>
+        <span style="color:#000;font-weight:bold">default</span>:
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;mooed through the mootube and was ignored&#34;</span>)
+            time.<span style="color:#900;font-weight:bold">Sleep</span>(time.<span style="color:#900;font-weight:bold">Duration</span>(rand.<span style="color:#900;font-weight:bold">Int31n</span>(<span style="color:#099">1000</span>)) <span style="color:#000;font-weight:bold">*</span> time.Millisecond)
+        }
+    }
+}
+
+<span style="color:#998;font-style:italic">// The farmer wants to put food in all the mootubes to stop the mooing
+</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">farmer</span>(numcows <span style="color:#458;font-weight:bold">int</span>, mootube <span style="color:#000;font-weight:bold">chan</span> Moo, farmertube <span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">string</span>) {
+    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer starts listening to the mootube&#34;</span>)
+    <span style="color:#000;font-weight:bold">for</span> hungryCows <span style="color:#000;font-weight:bold">:=</span> numcows; hungryCows &gt; <span style="color:#099">0</span>; {
+        moo <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&lt;-</span>mootube
+        <span style="color:#000;font-weight:bold">if</span> moo.Sound <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;mooh&#34;</span> {
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer heard a moo of relief from cow number&#34;</span>, moo.Cow)
+            hungryCows<span style="color:#000;font-weight:bold">--</span>
+        } <span style="color:#000;font-weight:bold">else</span> {
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer heard a&#34;</span>, moo.Sound, <span style="color:#d14">&#34;from cow number&#34;</span>, moo.Cow)
+            time.<span style="color:#900;font-weight:bold">Sleep</span>(<span style="color:#099">2e9</span>)
+            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer starts feeding cow number&#34;</span>, moo.Cow)
+            moo.Tube <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#000;font-weight:bold">true</span>
+        }
+    }
+    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer doesn&#39;t hear a single moo anymore. All done!&#34;</span>)
+    farmertube <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#d14">&#34;yey!&#34;</span>
+}
+
+<span style="color:#998;font-style:italic">// The farm starts out with mooing cows that wants to be fed
+</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">runFarm</span>(numcows <span style="color:#458;font-weight:bold">int</span>) {
+    farmertube <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">string</span>)
+    mootube <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">chan</span> Moo)
+    <span style="color:#000;font-weight:bold">for</span> cownum <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; cownum &lt; numcows; cownum<span style="color:#000;font-weight:bold">++</span> {
+        <span style="color:#000;font-weight:bold">go</span> <span style="color:#900;font-weight:bold">cow</span>(cownum, mootube)
+    }
+    <span style="color:#000;font-weight:bold">go</span> <span style="color:#900;font-weight:bold">farmer</span>(numcows, mootube, farmertube)
+    farmerSaid <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&lt;-</span>farmertube
+    <span style="color:#000;font-weight:bold">if</span> farmerSaid <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;yey!&#34;</span> {
+        fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;All cows are happy.&#34;</span>)
+    }
+}
+
+<span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
+    <span style="color:#900;font-weight:bold">runFarm</span>(<span style="color:#099">4</span>)
+    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;done&#34;</span>)
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/golang' target="_blank">golang</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2022 <a href="https://hikaricp.github.io/">杨佳畅的博客 By 杨佳畅</a>
+        
+    </div>
+    <br />
+    <div>
+        <div class="github-badge">
+            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+        </div>
+        <div class="github-badge">
+            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+        </div>
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://hikaricp.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="Go语言基础" target="_blank">Go语言基础</a>
+    </li>
+    
+    <li>
+        <a href="https://hikaricp.github.io/post/springboot/" title="SpringBoot实战" target="_blank">SpringBoot实战</a>
+    </li>
+    
+    <li>
+        <a href="https://hikaricp.github.io/post/first/" title="我的第一篇文章" target="_blank">我的第一篇文章</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://hikaricp.github.io/categories/go/">Go (1)</a></li>
+    
+    <li><a href="https://hikaricp.github.io/categories/java/">Java (1)</a></li>
+    
+    <li><a href="https://hikaricp.github.io/categories/spring/">Spring (1)</a></li>
+    
+    <li><a href="https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/">第一 (1)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://hikaricp.github.io/tags/golang/">golang</a>
+    
+    <a href="https://hikaricp.github.io/tags/spring/">Spring</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://hikaricp.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

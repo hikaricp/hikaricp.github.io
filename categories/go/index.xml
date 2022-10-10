@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on 杨佳畅的博客</title>
+    <link>https://hikaricp.github.io/categories/go/</link>
+    <description>Recent content in Go on 杨佳畅的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 30 Jul 2022 00:32:34 +0800</lastBuildDate><atom:link href="https://hikaricp.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言基础</title>
+      <link>https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sat, 30 Jul 2022 00:32:34 +0800</pubDate>
+      
+      <guid>https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</guid>
+      <description>记录第一次的美好</description>
+    </item>
+    
+  </channel>
+</rss>

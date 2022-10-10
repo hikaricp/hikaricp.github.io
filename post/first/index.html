@@ -7,16 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-    <title>分类 | 杨佳畅的博客</title>
-    <meta property="og:title" content="分类 - 杨佳畅的博客">
+    <title>我的第一篇文章 | 杨佳畅的博客</title>
+    <meta property="og:title" content="我的第一篇文章 - 杨佳畅的博客">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2022-07-30T00:32:34&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2022-07-30T00:32:34&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="Java开发">
+    <meta name="description" content="我的第一篇文章">
         
     <meta name="author" content="杨佳畅">
-    <meta property="og:url" content="https://hikaricp.github.io/categories/">
+    <meta property="og:url" content="https://hikaricp.github.io/post/first/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -45,11 +49,11 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://hikaricp.github.io/">首页</a>
+                    <a class="current" href="https://hikaricp.github.io/">首页</a>
                     
                     <a  href="https://hikaricp.github.io/archives/" title="归档">归档</a>
                     
-                    <a class="current" href="https://hikaricp.github.io/categories/" title="分类">分类</a>
+                    <a  href="https://hikaricp.github.io/categories/" title="分类">分类</a>
                     
                     <a  href="https://hikaricp.github.io/about/" title="关于">关于</a>
                     
@@ -166,11 +170,20 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">分类</h1>
+            <h1 class="post-title">我的第一篇文章</h1>
         </header>
         <date class="post-meta meta-date">
-            1年1月1日
+            2022年7月30日
         </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category">
+                <a href='/categories/%E7%AC%AC%E4%B8%80' target="_blank">第一</a>
+            </span>
+            
+        </div>
         
         
         
@@ -234,6 +247,80 @@
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 
 
 
