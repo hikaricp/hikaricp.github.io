@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>杨佳畅的博客</title>
+    <link>http://example.org/</link>
+    <description>Recent content on 杨佳畅的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于我</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Tue, 10 Mar 2015 00:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description>记录生活</description>
+    </item>
+    
+    <item>
+      <title>分类</title>
+      <link>http://example.org/categories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/categories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>归档</title>
+      <link>http://example.org/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/archives/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
