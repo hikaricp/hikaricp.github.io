@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>第一 on 杨佳畅的博客</title>
+    <title>第一 on 杨佳畅 Blog</title>
     <link>https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/</link>
-    <description>Recent content in 第一 on 杨佳畅的博客</description>
+    <description>Recent content in 第一 on 杨佳畅 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 30 Jul 2022 00:32:34 +0800</lastBuildDate><atom:link href="https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇文章</title>
+      <link>https://hikaricp.github.io/posts/first/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hikaricp.github.io/posts/first/</guid>
+      <description>记录第一次的美好</description>
+    </item>
+    
     <item>
       <title>我的第一篇文章</title>
       <link>https://hikaricp.github.io/post/first/</link>

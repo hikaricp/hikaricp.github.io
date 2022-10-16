@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hikaricp.github.io/categories/</loc>
-    <lastmod>2022-07-30T00:32:34+08:00</lastmod>
+    <lastmod>2022-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hikaricp.github.io/posts/</loc>
+    <lastmod>2022-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hikaricp.github.io/posts/first/</loc>
+    <lastmod>2022-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hikaricp.github.io/</loc>
+    <lastmod>2022-07-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/</loc>
+    <lastmod>2022-07-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hikaricp.github.io/categories/go/</loc>
     <lastmod>2022-07-30T00:32:34+08:00</lastmod>
@@ -12,6 +24,9 @@
     <lastmod>2022-07-30T00:32:34+08:00</lastmod>
   </url><url>
     <loc>https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2022-07-30T00:32:34+08:00</lastmod>
+  </url><url>
+    <loc>https://hikaricp.github.io/posts/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2022-07-30T00:32:34+08:00</lastmod>
   </url><url>
     <loc>https://hikaricp.github.io/categories/java/</loc>
@@ -32,16 +47,13 @@
     <loc>https://hikaricp.github.io/post/springboot/</loc>
     <lastmod>2022-07-30T00:32:34+08:00</lastmod>
   </url><url>
+    <loc>https://hikaricp.github.io/posts/springboot/</loc>
+    <lastmod>2022-07-30T00:32:34+08:00</lastmod>
+  </url><url>
     <loc>https://hikaricp.github.io/tags/</loc>
     <lastmod>2022-07-30T00:32:34+08:00</lastmod>
   </url><url>
     <loc>https://hikaricp.github.io/post/first/</loc>
-    <lastmod>2022-07-30T00:32:34+08:00</lastmod>
-  </url><url>
-    <loc>https://hikaricp.github.io/</loc>
-    <lastmod>2022-07-30T00:32:34+08:00</lastmod>
-  </url><url>
-    <loc>https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/</loc>
     <lastmod>2022-07-30T00:32:34+08:00</lastmod>
   </url><url>
     <loc>https://hikaricp.github.io/about/</loc>

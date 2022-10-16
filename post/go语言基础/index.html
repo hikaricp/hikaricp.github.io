@@ -1,137 +1,189 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-
-    <title>Go语言基础 | 杨佳畅的博客</title>
-    <meta property="og:title" content="Go语言基础 - 杨佳畅的博客">
-    <meta property="og:type" content="article">
-        
-    <meta property="article:published_time" content='2022-07-30T00:32:34&#43;08:00'>
-        
-        
-    <meta property="article:modified_time" content='2022-07-30T00:32:34&#43;08:00'>
-        
-    <meta name="Keywords" content="">
-    <meta name="description" content="Go语言基础">
-        
-    <meta name="author" content="杨佳畅">
-    <meta property="og:url" content="https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
-
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en-us" >
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
 
     
+    <meta
+      name="author"
+      content=""
+    />
+
+    
+    <meta name="description" content="记录第一次的美好" />
+     
+
+    <link rel="apple-touch-icon" href="/images/icon/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://g.alicdn.com" />
+    <link
+      rel="preconnect"
+      href="https://www.google-analytics.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    
+    <link rel="canonical" href="https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" />
+
+    
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      "gtm.start": new Date().getTime(),
+      event: "gtm.js",
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-MZPCR2F");
+</script>
+
+ 
+
+    <title>
+      Go语言基础 &middot; 杨佳畅 Blog
+    </title>
+
+    <link rel="shortcut icon" href="https://hikaricp.github.io/images/favicon.ico" />
+
     
     
+    <style>
+      @-webkit-keyframes fadeInDown{0%{-webkit-transform:translate3d(0,-100%,0);opacity:0;transform:translate3d(0,-100%,0)}to{-webkit-transform:translateZ(0);opacity:1;transform:translateZ(0)}}@keyframes fadeInDown{0%{-webkit-transform:translate3d(0,-100%,0);opacity:0;transform:translate3d(0,-100%,0)}to{-webkit-transform:translateZ(0);opacity:1;transform:translateZ(0)}}.fadeInDown{-webkit-animation-name:fadeInDown;animation-name:fadeInDown}.animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}@media(print),(prefers-reduced-motion:reduce){.animated{-webkit-animation-duration:1ms!important;animation-duration:1ms!important;-webkit-transition-duration:1ms!important;transition-duration:1ms!important;-webkit-animation-iteration-count:1!important;animation-iteration-count:1!important}}
+    </style>
+    
+
+    
+
     
     
+    <style>
+       @charset "UTF-8";@font-face{font-family:product sans;font-display:swap;src:url(/fonts/ProductSans-Light.eot);src:local("Product Sans"),local("ProductSans-Light"),url(/fonts/ProductSans-Light.eot?#iefix)format("embedded-opentype"),url(/fonts/ProductSans-Light.woff2)format("woff2"),url(/fonts/ProductSans-Light.woff)format("woff"),url(/fonts/ProductSans-Light.ttf)format("truetype");font-weight:300;font-style:normal}@font-face{font-family:product sans;font-display:swap;src:url(/fonts/ProductSans-Thin.woff2);src:local("Product Sans"),local("ProductSans-Thin"),url(/fonts/ProductSans-Thin.eot?#iefix)format("embedded-opentype"),url(/fonts/ProductSans-Thin.woff2)format("woff2"),url(/fonts/ProductSans-Thin.woff)format("woff"),url(/fonts/ProductSans-Thin.ttf)format("truetype");font-weight:100;font-style:normal}@font-face{font-family:product sans;font-display:swap;src:url(/fonts/ProductSans-Regular.woff2);src:local("Product Sans"),local("ProductSans-Regular"),url(/fonts/ProductSans-Regular.eot?#iefix)format("embedded-opentype"),url(/fonts/ProductSans-Regular.woff2)format("woff2"),url(/fonts/ProductSans-Regular.woff)format("woff"),url(/fonts/ProductSans-Regular.ttf)format("truetype"),url(/fonts/ProductSans-Regular.svg#ProductSans-Regular)format("svg");font-weight:400;font-style:normal}@font-face{font-family:product sans;font-display:swap;src:url(/fonts/ProductSans-Bold.woff2);src:local("Product Sans Bold"),local("ProductSans-Bold"),local("Product Sans"),url(/fonts/ProductSans-Bold.eot?#iefix)format("embedded-opentype"),url(/fonts/ProductSans-Bold.woff2)format("woff2"),url(/fonts/ProductSans-Bold.woff)format("woff"),url(/fonts/ProductSans-Bold.ttf)format("truetype"),url(/fonts/ProductSans-Bold.svg#ProductSans-Bold)format("svg");font-weight:700;font-style:normal}::selection{background:rgba(0,0,0,.1)}html,body{height:100%}html{background-color:#fafafa;-webkit-font-smoothing:antialiased}body{color:#333;font-family:product sans,pingfang sc,helvetica neue,sf pro sc,sf pro display,sf pro icons,helvetica,arial,sans-serif;font-size:16px;width:100%;background-color:#fafafa;margin:0;padding:0}p{line-height:1.9em;font-weight:400;margin:0}a{text-decoration:none}a:link,a:visited{opacity:1;-webkit-transition:all .15s linear;-moz-transition:all .15s linear;-o-transition:all .15s linear;transition:all .15s linear;color:#424242}a:hover,a:active{color:#555}h1,h2,h3,h4,h5,h6{text-rendering:optimizeLegibility}hr{border:1px solid #f3f3f3}a{text-decoration:none}ul{list-style:none}a,input,button{outline:none;-webkit-tap-highlight-color:transparent}button{user-select:none}.main{min-height:82vh;background:#fafafa;margin:0}.content{height:auto;margin:0;display:flex;justify-content:center}.content twitter-widget{text-align:center;margin:auto;padding-bottom:20px}.content .post_page,.content .wrapper,.content .list_with_title,.content .page_tags{width:56%;display:block;flex-grow:0;order:0}.content aside{flex-grow:1;width:0}.content aside.right{order:1}.content aside.left{order:-1}.content aside.toc{color:rgba(0,0,0,.2);margin:50px auto auto 40px}.content aside.toc .reading{background:rgba(0,0,0,.1);color:#232323}.content aside.toc #toc_content{transition-duration:1.5s;transition:background-color .15s linear;overflow:hidden}.content aside.toc #toc_content nav{position:relative;max-height:75vh;overflow-y:scroll;overflow-x:hidden}.content aside.toc .fixed{position:fixed;top:40px}.content aside.toc h3{margin:16px 0}.content aside.toc ul{padding:0;margin:0;width:180px;overflow:hidden;white-space:nowrap}.content aside.toc ul li{width:180px;overflow:hidden;text-overflow:ellipsis;overflow:hidden;padding:3px 0}.content aside.toc ul li ul li ul{padding-left:10px}.content aside.toc ul a{border-radius:6px;padding:4px;color:rgba(0,0,0,.4);font-weight:700}.content aside.toc ul a:hover{background-color:rgba(0,0,0,5%)}.content .post_page{display:block;flex-grow:0}.content .post_page .post{box-shadow:0 8px 20px rgba(0,0,0,7%)}.content .post_page .doc_comments{margin:0;padding-bottom:0}.content .post_page .doc_comments .comments_block_title{font-family:noto serif,noto serif cjk tc,source han serif tc,songti tc,serif;font-size:24px;font-weight:700}.list_with_title .container{width:56%;margin:0 auto}.nav{display:flex;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.096)}.nav .nav_left{width:auto;flex-grow:1;display:flex;align-items:center;justify-content:center;margin:0;width:0}.nav .nav_left .site_title img{width:3rem}.nav .nav_right{flex-grow:1}.nav .nav_container{height:4rem;margin:0 auto;width:56%;flex-grow:0;display:flex;align-items:center}.nav .nav_container .menu_icon{padding:10px;float:left}.nav .nav_container .menu_icon a{cursor:pointer}.nav .nav_container .site_nav{float:left;font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif}.nav .nav_container .site_nav .nav_active{font-weight:700}.nav .nav_container .site_nav ul{list-style:none;margin:0;padding:0;float:right}.nav .nav_container .site_nav li,.nav .nav_container .site_nav a{position:relative}.nav .nav_container .site_nav li{float:left}.nav .nav_container .site_nav a{display:block;white-space:nowrap;margin:10px 40px 10px 0;font-size:1.1rem;position:relative}.nav .nav_container .site_nav a::before{content:"";position:absolute;bottom:-3px;left:0;right:0;height:2px;background-color:rgba(0,0,0,.6);transform-origin:bottom right;transform:scaleX(0);transition:transform .5s ease}.nav .nav_container .site_nav a:hover::before{transform-origin:bottom left;transform:scaleX(1)}.post{background-color:#fff;margin:50px 0;background:#fff;border:3rem solid #fff;border-bottom:2.5rem solid #fff;border-top:3rem solid #fff;box-shadow:0 8px 20px rgba(0,0,0,7%);transition:.3s;border-radius:10px;padding:0}.post:hover{box-shadow:0 12px 36px rgba(0,0,0,.12)}.post .post_title{padding-bottom:16px}.post .post_title h2{letter-spacing:1px;font-size:2rem;line-height:1;font-weight:600;color:#1f1f1f;margin:0 0 6px}.post .post_title a{text-decoration:none;letter-spacing:1px;color:#1f1f1f;font-size:2rem;line-height:2.4rem}.post .post_title span{color:rgba(0,0,0,.44);font-size:14px}.post .post_title span.date{font-size:12px}.post .post_detail .meta{max-width:100%;height:30px;font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif;font-size:10px;color:rgba(0,0,0,.6);letter-spacing:0}.post .post_detail .meta .info{float:left;font-size:13px;display:flex;align-items:center}.post .post_detail .meta .info i.date{margin-right:10px}.post .post_detail .meta .field{display:flex;align-items:center;margin-right:10px;white-space:nowrap}.post .post_detail .meta .field i{margin-right:10px}.post .post_detail_title h2{font-size:1.5rem;font-weight:700}.post .post_detail_title{padding-bottom:0}.post .list .post_content{color:rgba(0,0,0,.6)}.post .list .post_content p{line-height:2em;letter-spacing:0;padding-bottom:0!important}.post .post_content{word-break:normal;font-size:16px;color:#555;letter-spacing:0}.post .post_content .plyr{margin:10px 0}.post .post_content ul li{list-style:disc}.post .post_content p{margin:0 0 1.5em;line-height:2em;letter-spacing:.7px}.post .post_content a{text-decoration:none;letter-spacing:1px;color:#0070f2}.post .post_content a:hover{color:#0061d2}.post .read_info{margin-top:1.5rem;display:flex;justify-content:space-between}.post .read_info span{font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif;font-size:20px;margin-right:4px;letter-spacing:0}.post .read_info .read_more{display:flex;align-items:center;color:#0070f2;margin-right:5px}.post .read_info .read_more i{color:#0070f2;font-size:20px;transition-duration:.3s;transition-timing-function:ease-out}.post .read_info .read_more i:hover{transform:translate(2px,0)}.post .read_info .read_time{color:rgba(0,0,0,.54);font-weight:400;text-align:right}.post .read_info .read_time span{font-size:16px}.post .post_footer{border-bottom:.5px solid rgba(0,0,0,.2);padding-bottom:40px}.post .post_footer .field a{font-size:14px}.tag{display:inline;padding:2px 4px 4px;border-radius:5px;margin:0;transition-duration:.4s}.tag:hover{box-shadow:0 2px 15px rgba(0,0,0,.14)}.field{font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif}.field a{text-decoration:none}.field a:hover{color:#1f1f1f}.field svg{width:12px;height:12px}.field a,.field svg{vertical-align:middle}.field a{margin-left:0}.page_tags{text-align:center;margin:50px 0}.page_tags ul li{margin:10px 15px;display:inline-block;font-size:1em}.page_tags ul li a .tag_button{text-transform:capitalize;padding:10px 15px 10px 25px;background:#fff;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.096);border-radius:10px;transition-duration:.5s}.page_tags ul li a .tag_button:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.12);color:#0070f2}.page_tags .terms_count{display:inline-block;position:relative;top:-8px;right:-2px;color:#c5c5c5;font-size:12px}.page_tags ul{margin:0;padding:0}.footer{clear:both;text-align:center;min-height:18vh;background:#fff;border-top:1px solid rgba(0,0,0,.1);display:flex;align-items:center}.footer>.footer_info{width:100%}.footer p{font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif;font-size:18px;color:rgba(0,0,0,.54);letter-spacing:0;text-align:center}.footer p a{transition-duration:.2s;font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif;font-weight:700;color:rgba(0,0,0,.54)}.footer p a:hover{color:#000}.footer .my_socials a i{transition-duration:.5s;color:rgba(0,0,0,.5);font-size:15px;margin:0 2px}.footer .my_socials a i:hover{color:#000}.footer .powered_by{margin-top:-7px;font-size:16px}.footer .beian{font-size:13px;font-weight:700;font-family:noto serif,noto serif cjk tc,source han serif tc,songti tc,serif;letter-spacing:1px}.footer .beian a{font-family:noto serif,noto serif cjk tc,source han serif tc,songti tc,serif;color:rgba(0,0,0,.55)}.list_with_title{font-size:14px;margin:20px 0 0;padding:0}.list_with_title li{list-style-type:none;padding:0}.list_with_title .listing_title{font-size:2.6rem;color:#6d6d6d;font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif;font-weight:700;padding-top:10px;line-height:2.2em}.list_with_title .listing{margin:0 0 30px;line-height:2.1}.list_with_title .listing .listing_item{background-color:#fff;margin:10px 0;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.096);padding:.6rem 1rem;transition:color 2s,box-shadow .3s,transform .5s;z-index:0}.list_with_title .listing .listing_item:last-child{border-bottom:0}.list_with_title .listing .listing_item:hover{box-shadow:0 0 20px rgba(0,0,0,.15);z-index:100;transform:translateY(-1.5px)}.list_with_title .listing .listing_item:hover .listing_post a,.list_with_title .listing .listing_item:hover .listing_post:hover a{color:#0061d2}.list_with_title .listing .listing_item .listing_post{color:#424242}.list_with_title .listing .listing_item .listing_post a{transition:color .1s;display:inline-block;width:85%;color:#424242;font-weight:700}.list_with_title .listing .listing_item .listing_post .post_time{float:right;color:#757575;font-size:14px;font-family:product sans,google sans,Roboto,Arial,Helvetica,sans-serif}.list_with_title .listing .listing_item .listing_post a:hover{color:#1f1f1f}.pagination{padding-bottom:60px;color:#666;font-size:14px}.pagination a{color:#333;text-decoration:none}.pagination a .pagination_button{margin-bottom:36px;padding:1rem;background:#fff;box-shadow:0 8px 20px rgba(0,0,0,.096);border-radius:10px;transition:.3s ease-in-out;display:flex;align-items:center}.pagination a .pagination_button:hover,.pagination a .pagination_button:active{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.12);color:#0070f2;font-weight:400}.pagination .pre{float:left}.pagination .next{float:right}.markdown{line-height:1.8em;word-wrap:break-word;word-break:normal;overflow-wrap:break-word;font-family:pingfang sc,helvetica neue,sf pro sc,sf pro display,sf pro icons,helvetica,arial,sans-serif}.markdown ul,.markdown ol,.markdown dl{padding-inline-start:24px;margin:.2em 0 .8em}.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{color:#000}.markdown h1:before,.markdown h2:before{position:absolute;transform:translate(-130%);display:block;content:"#";color:rgba(0,0,0,.1)}.markdown h3:before,.markdown h4:before,.markdown h5:before,.markdown h6:before{position:absolute;transform:translate(-120%);display:block;content:"##";color:rgba(0,0,0,.1)}.markdown h1{margin:1.5em 0;font-size:1.6em}.markdown h2{margin:1.8em 0 1em;font-size:1.4em}.markdown h3{margin:1em 0 .6em;font-size:1.2em}.markdown h4{margin:.5em 0 .3em;font-size:1em}.markdown pre,.markdown code{font-family:Monaco,roboto mono,Menlo,courier,monospace;font-size:.9em;border:none;margin:0 3px}.markdown pre{margin-top:1.2em;margin-bottom:2.2em;padding:15px 20px;display:block;overflow:auto;white-space:pre;word-wrap:break-word}.markdown code{color:#666;background-color:#2728221a;padding:4px 5px;border-radius:2px;white-space:nowrap}.markdown pre code{padding:0}.markdown blockquote p{white-space:normal}.markdown pre::-webkit-scrollbar{height:10px}.markdown pre::-webkit-scrollbar-button{display:none}.markdown pre::-webkit-scrollbar-track{background:#fff}.markdown pre::-webkit-scrollbar-thumb{min-height:1rem;background-color:#ccc;background-clip:padding-box;border:3px solid #fdfdfd;border-radius:5px}.markdown pre::-webkit-scrollbar-thumb:active{background-color:#999;border-width:2px}.markdown blockquote{-moz-box-sizing:border-box;box-sizing:border-box;margin:2.5em 0;padding:0 0 0 50px;font-style:italic;color:#555;border-left:none}.markdown blockquote:before{content:"“";display:block;font-family:times,sans-serif;font-style:normal;font-size:48px;color:#444;font-weight:700;line-height:30px;margin-left:-50px;position:absolute}.markdown b,.markdown em{padding:1px 2px;background-color:#03b4f821;font-weight:400}.markdown strong{padding:1px 2px;font-weight:bolder}.markdown table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all;border-collapse:collapse;border-spacing:0;margin:0 0 1.5em}.markdown table tr{background-color:#fff;border-top:1px solid #ccc}.markdown table tr:nth-child(2n){background-color:#f8f8f8}.markdown table th,.markdown table td{padding:6px 13px;border:1px solid #ddd}.markdown .fancybox{text-align:center}.markdown img{max-width:100%;height:auto}a.back_to_top{text-decoration:none;position:fixed;bottom:40px;right:30px;background:#f0f0f0;height:40px;width:40px;border-radius:50%;line-height:36px;font-size:18px;text-align:center;transition-duration:.5s;transition-property:background-color;display:none}a.back_to_top span{color:#888}a.back_to_top:hover{cursor:pointer;background:#dfdfdf}a.back_to_top:hover span{color:#555}#notify{display:none;position:fixed;bottom:-100px;left:20px;min-width:300px;max-width:600px;min-height:30px;display:flex;align-items:center;padding:20px;font-family:product san;font-weight:700;color:#000;background-color:#fff;box-shadow:rgba(0,0,0,.12)0 4px 9px;border-radius:10px;transition:all .4s ease-in-out}#notify a,#notify p{display:inline}#notify a{text-decoration:none;letter-spacing:1px;color:#0070f2}#notify button{width:60px;height:30px;box-shadow:rgba(0,0,0,.3)0 4px 9px;margin:0;background-color:#000;padding:0;border-radius:5px;color:#fff;border:1px solid transparent;outline:none;transition:box-shadow 0s}#notify button:hover{box-shadow:rgba(0,0,0,.3)0 6px 12px}#notify button:active{box-shadow:transparent 0 8px 9px}@media print,screen and (max-width:680px){.nav_container{position:relative;z-index:999}.nav_container .site_nav{display:none;position:fixed;right:0;top:60px;padding:10px 0;width:100%;background-color:#fff;box-shadow:0 10px 20px rgba(236,236,236,.86)}.nav_container .site_nav ul{float:none;text-align:center}.nav_container .site_nav li{float:none}.nav_container .menu_icon{position:fixed;right:0}.back_to_top{display:none!important}}@media screen and (max-width:900px){.markdown blockquote:before{content:""}.markdown blockquote{padding:0 0 0 16px;border-left:rgba(175,175,175,.22)solid 5px;color:rgba(0,0,0,.4)}aside{display:none}.post_page,.wrapper,.list_with_title,.page_tags{width:90%!important}.post{border:0;border-right:2rem solid #fff;padding:2rem 0 2rem 2rem;margin-top:20px;overflow:hidden}.post .post_title a{font-size:1.5rem}.post .post_content p{font-size:1rem}.post .read_info span{font-size:1rem}.post .read_info .read_more i{font-size:1rem}.post .read_info .read_time span{font-size:.9rem}.pagination a .pagination_button{margin-bottom:20px}.footer .my_socials a i{font-size:24px}}@media screen and (min-width:1600px){.nav .nav_container{max-width:800px}.content .post_page,.content .wrapper,.content .list_with_title,.content .page_tags{max-width:800px}}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-3px)}100%{opacity:1;-webkit-transform:translateY(0)}}@-moz-keyframes fadeInDown{0%{opacity:0;-moz-transform:translateY(-3px)}100%{opacity:1;-moz-transform:translateY(0)}}@-o-keyframes fadeInDown{0%{opacity:0;-o-transform:translateY(-3px)}100%{opacity:1;-o-transform:translateY(0)}}@keyframes fadeInDown{0%{opacity:0;transform:translateY(-3px)}100%{opacity:1;transform:translateY(0)}}
+    </style>
     
-</head>
+
+    
+    
+    <style>
+      @font-face{font-family:remixicon;src:url(/fonts/remixicon.eot);src:url(/fonts/remixicon.eot#iefix)format("embedded-opentype"),url(/fonts/remixicon.woff2)format("woff2"),url(/fonts/remixicon.woff)format("woff"),url(/fonts/remixicon.ttf)format("truetype"),url(/fonts/remixicon.svg)format("svg");font-display:swap}[class^=remixicon-],[class*=" remixicon-"]{font-family:remixicon!important;font-size:14px;font-style:normal;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.remixicon-calendar-line:before{content:"\f053"}.remixicon-arrow-right-circle-line:before{content:"\efca"}.remixicon-facebook-fill:before{content:"\f153"}.remixicon-github-fill:before{content:"\f1f8"}.remixicon-linkedin-fill:before{content:"\f268"}.remixicon-wechat-fill:before{content:"\f4d7"}.remixicon-rss-fill:before{content:"\f395"}
+    </style>
+    
+
+    
+    
+
+    
+     
+
+    <link rel="manifest" href="/manifest.json" />
+
+    
+
+    <script>
+  (function (win, export_obj) {
+    win["TeaAnalyticsObject"] = export_obj;
+    if (!win[export_obj]) {
+      function _collect() {
+        _collect.q.push(arguments);
+      }
+      _collect.q = _collect.q || [];
+      win[export_obj] = _collect;
+    }
+    win[export_obj].l = +new Date();
+  })(window, "collectEvent");
+</script>
+<script
+  async
+  src="https://s0.ipstatp.com/static_magic/pgc/tech/collect/collect-autotrack-rangers.js"
+></script>
+<script>
+window.collectEvent("init", {
+app_id: 187690,
+channel: "sg",
+enable_ab_test: true,
+autotrack: true,
+});
+window.collectEvent('getVar', 'show', '', function(value) { 
+  if (value) {
+    document.getElementById("ab").innerHTML=`<p>${value} Group</p>`;
+  } else {
+    document.getElementById("ab").innerHTML="<p>Missing</p>";
+  }
+})
+window.collectEvent("start");
+</script>
+
+
+
+  </head>
+</html>
 
 <body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="https://hikaricp.github.io/">
-                        杨佳畅的博客
-                    </a>
-                
-                <p class="description">以人为镜可以明得失，以代码为镜可以通逻辑</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="https://hikaricp.github.io/">首页</a>
-                    
-                    <a  href="https://hikaricp.github.io/archives/" title="归档">归档</a>
-                    
-                    <a  href="https://hikaricp.github.io/about/" title="关于">关于</a>
-                    
-                </nav>
-            </div>
-        </div>
+<script src="https://hikaricp.github.io/js/highlight.pack.js" async></script>
+<link href="https://hikaricp.github.io/css/prism.css" rel="stylesheet">
+<script src="https://hikaricp.github.io/js/prism.js" async></script>
+
+<noscript
+  ><iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-MZPCR2F"
+    height="0"
+    width="0"
+    style="display: none; visibility: hidden;"
+  ></iframe
+></noscript>
+
+
+
+<div class="main animated">
+  <div class="nav">
+  <div class="nav_left">
+    <div class="site_title">
+        <a href="https://hikaricp.github.io/">
+          <img alt="Fred" src="https://hikaricp.github.io/images/logo.svg"/>
+        </a>
     </div>
-</header>
+  </div>
+  <div class="nav_container">
+    <div class="site_nav" id="site_nav">
+      <ul>
+        
+        
+        <li class="">
+          <a href="/">Home</a>
+        </li>
+        
+        <li class="">
+          <a href="/posts/">Archives</a>
+        </li>
+        
+        <li class="">
+          <a href="/tags/">Tags</a>
+        </li>
+        
+        <li class="">
+          <a href="/about/">About</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="nav_right"></div>
+  <div id="ab" style="background-color: white;display:flex;align-items:center;justify-content:center;padding:2px 12px;position:fixed;right:0;bottom:0;z-index:100;font-family: product sans;margin: 10px;border-radius: 5px;box-shadow: 0 0 10px 0 rgba(0,0,0,.07);"></div>
+</div>
 
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
-
-                <div class="col-8" id="main">
-                    
-<div class="res-cons">
-    <style type="text/css">
-    .post-toc {
-        position: fixed;
-        width: 200px;
-        margin-left: -210px;
-        padding: 5px 10px;
-        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
-        font-size: 12px;
-        border: 1px solid rgba(0, 0, 0, .07);
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, 0.98);
-        background-clip: padding-box;
-        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
-        word-wrap: break-word;
-        white-space: nowrap;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        z-index: 999;
-        cursor: pointer;
-        max-height: 70%;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .post-toc .post-toc-title {
-        width: 100%;
-        margin: 0 auto;
-        font-size: 20px;
-        font-weight: 400;
-        text-transform: uppercase;
-        text-align: center;
-    }
-
-    .post-toc .post-toc-content {
-        font-size: 15px;
-    }
-
-    .post-toc .post-toc-content>nav>ul {
-        margin: 10px 0;
-    }
-
-    .post-toc .post-toc-content ul {
-        padding-left: 20px;
-        list-style: square;
-        margin: 0.5em;
-        line-height: 1.8em;
-    }
-
-    .post-toc .post-toc-content ul ul {
-        padding-left: 15px;
-        display: none;
-    }
-
-    @media print,
-    screen and (max-width:1057px) {
-        .post-toc {
-            display: none;
-        }
-    }
-</style>
-<div class="post-toc" style="position: absolute; top: 188px;">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
+  
+  <div class="content">
+    <aside class="left"></aside>
+    <aside class="toc right" >
+      <div id="toc_content">
+        <h3>CATALOG</h3>
         <nav id="TableOfContents">
   <ul>
     <li><a href="#初始化">初始化</a></li>
@@ -139,426 +191,231 @@
     <li><a href="#销毁">销毁</a></li>
   </ul>
 </nav>
-    </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var postToc = $(".post-toc");
-        if (postToc.length) {
-            var leftPos = $("#main").offset().left;
-            if (leftPos < 220) {
-                postToc.css({ "width": leftPos - 10, "margin-left": (0 - leftPos) })
-            }
-
-            var t = postToc.offset().top - 20,
-                a = {
-                    start: {
-                        position: "absolute",
-                        top: t
-                    },
-                    process: {
-                        position: "fixed",
-                        top: 20
-                    },
-                };
-            $(window).scroll(function () {
-                var e = $(window).scrollTop();
-                e < t ? postToc.css(a.start) : postToc.css(a.process)
-            })
-        }
-
-        if ($("#TableOfContents").children().length < 1) {
-            $(".post-toc").remove();
-        }
-    })
-</script>
-    <article class="post">
-        <header>
-            <h1 class="post-title">Go语言基础</h1>
-        </header>
-        <date class="post-meta meta-date">
-            2022年7月30日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category">
-                <a href='/categories/go' target="_blank">Go</a>
-            </span>
-            
+      </div>
+    </aside>
+    <div class="post_page">
+      <div class="post animated fadeInDown">
+        <div class="post_title post_detail_title">
+          <h2><a href='/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/'>Go语言基础</a></h2>
+          <span class="date">2022.07.30</span>
         </div>
-        
-        
-        
-        <div class="post-content">
-            <h2 id="初始化">初始化</h2>
+        <div class="post_content markdown"><h2 id="初始化">初始化</h2>
 <p>初始化阶段</p>
 <h2 id="加载">加载</h2>
 <p>加载阶段</p>
 <h2 id="销毁">销毁</h2>
 <p>销毁阶段</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000;font-weight:bold">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<span style="color:#000;font-weight:bold">import</span> (
-    <span style="color:#d14">&#34;fmt&#34;</span>
-    <span style="color:#d14">&#34;math/rand&#34;</span>
-    <span style="color:#d14">&#34;time&#34;</span>
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;math/rand&#34;</span>
+    <span style="color:#e6db74">&#34;time&#34;</span>
 )
 
-<span style="color:#000;font-weight:bold">type</span> Moo <span style="color:#000;font-weight:bold">struct</span> {
-    Cow   <span style="color:#458;font-weight:bold">int</span>
-    Sound <span style="color:#458;font-weight:bold">string</span>
-    Tube  <span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">bool</span>
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Moo</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Cow</span>   <span style="color:#66d9ef">int</span>
+    <span style="color:#a6e22e">Sound</span> <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">Tube</span>  <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>
 }
 
-<span style="color:#998;font-style:italic">// A cow will moo until it is being fed
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">cow</span>(num <span style="color:#458;font-weight:bold">int</span>, mootube <span style="color:#000;font-weight:bold">chan</span> Moo) {
-    tube <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">bool</span>)
-    <span style="color:#000;font-weight:bold">for</span> {
-        <span style="color:#000;font-weight:bold">select</span> {
-        <span style="color:#000;font-weight:bold">case</span> mootube <span style="color:#000;font-weight:bold">&lt;-</span> Moo{num, <span style="color:#d14">&#34;moo&#34;</span>, tube}:
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;mooed through the mootube&#34;</span>)
-            <span style="color:#000;font-weight:bold">&lt;-</span>tube
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;is being fed and stops mooing&#34;</span>)
-            mootube <span style="color:#000;font-weight:bold">&lt;-</span> Moo{num, <span style="color:#d14">&#34;mooh&#34;</span>, <span style="color:#000;font-weight:bold">nil</span>}
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;moos one last time out of happyness&#34;</span>)
-            <span style="color:#000;font-weight:bold">return</span>
-        <span style="color:#000;font-weight:bold">default</span>:
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Cow number&#34;</span>, num, <span style="color:#d14">&#34;mooed through the mootube and was ignored&#34;</span>)
-            time.<span style="color:#900;font-weight:bold">Sleep</span>(time.<span style="color:#900;font-weight:bold">Duration</span>(rand.<span style="color:#900;font-weight:bold">Int31n</span>(<span style="color:#099">1000</span>)) <span style="color:#000;font-weight:bold">*</span> time.Millisecond)
+<span style="color:#75715e">// A cow will moo until it is being fed
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">cow</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">mootube</span> <span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">Moo</span>) {
+    <span style="color:#a6e22e">tube</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">bool</span>)
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#66d9ef">select</span> {
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">mootube</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">Moo</span>{<span style="color:#a6e22e">num</span>, <span style="color:#e6db74">&#34;moo&#34;</span>, <span style="color:#a6e22e">tube</span>}:
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cow number&#34;</span>, <span style="color:#a6e22e">num</span>, <span style="color:#e6db74">&#34;mooed through the mootube&#34;</span>)
+            <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">tube</span>
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cow number&#34;</span>, <span style="color:#a6e22e">num</span>, <span style="color:#e6db74">&#34;is being fed and stops mooing&#34;</span>)
+            <span style="color:#a6e22e">mootube</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">Moo</span>{<span style="color:#a6e22e">num</span>, <span style="color:#e6db74">&#34;mooh&#34;</span>, <span style="color:#66d9ef">nil</span>}
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cow number&#34;</span>, <span style="color:#a6e22e">num</span>, <span style="color:#e6db74">&#34;moos one last time out of happyness&#34;</span>)
+            <span style="color:#66d9ef">return</span>
+        <span style="color:#66d9ef">default</span>:
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Cow number&#34;</span>, <span style="color:#a6e22e">num</span>, <span style="color:#e6db74">&#34;mooed through the mootube and was ignored&#34;</span>)
+            <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Duration</span>(<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Int31n</span>(<span style="color:#ae81ff">1000</span>)) <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
         }
     }
 }
 
-<span style="color:#998;font-style:italic">// The farmer wants to put food in all the mootubes to stop the mooing
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">farmer</span>(numcows <span style="color:#458;font-weight:bold">int</span>, mootube <span style="color:#000;font-weight:bold">chan</span> Moo, farmertube <span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">string</span>) {
-    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer starts listening to the mootube&#34;</span>)
-    <span style="color:#000;font-weight:bold">for</span> hungryCows <span style="color:#000;font-weight:bold">:=</span> numcows; hungryCows &gt; <span style="color:#099">0</span>; {
-        moo <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&lt;-</span>mootube
-        <span style="color:#000;font-weight:bold">if</span> moo.Sound <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;mooh&#34;</span> {
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer heard a moo of relief from cow number&#34;</span>, moo.Cow)
-            hungryCows<span style="color:#000;font-weight:bold">--</span>
-        } <span style="color:#000;font-weight:bold">else</span> {
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer heard a&#34;</span>, moo.Sound, <span style="color:#d14">&#34;from cow number&#34;</span>, moo.Cow)
-            time.<span style="color:#900;font-weight:bold">Sleep</span>(<span style="color:#099">2e9</span>)
-            fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer starts feeding cow number&#34;</span>, moo.Cow)
-            moo.Tube <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#000;font-weight:bold">true</span>
+<span style="color:#75715e">// The farmer wants to put food in all the mootubes to stop the mooing
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">farmer</span>(<span style="color:#a6e22e">numcows</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">mootube</span> <span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">Moo</span>, <span style="color:#a6e22e">farmertube</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">string</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Farmer starts listening to the mootube&#34;</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">hungryCows</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">numcows</span>; <span style="color:#a6e22e">hungryCows</span> &gt; <span style="color:#ae81ff">0</span>; {
+        <span style="color:#a6e22e">moo</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">mootube</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">moo</span>.<span style="color:#a6e22e">Sound</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;mooh&#34;</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Farmer heard a moo of relief from cow number&#34;</span>, <span style="color:#a6e22e">moo</span>.<span style="color:#a6e22e">Cow</span>)
+            <span style="color:#a6e22e">hungryCows</span><span style="color:#f92672">--</span>
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Farmer heard a&#34;</span>, <span style="color:#a6e22e">moo</span>.<span style="color:#a6e22e">Sound</span>, <span style="color:#e6db74">&#34;from cow number&#34;</span>, <span style="color:#a6e22e">moo</span>.<span style="color:#a6e22e">Cow</span>)
+            <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">2e9</span>)
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Farmer starts feeding cow number&#34;</span>, <span style="color:#a6e22e">moo</span>.<span style="color:#a6e22e">Cow</span>)
+            <span style="color:#a6e22e">moo</span>.<span style="color:#a6e22e">Tube</span> <span style="color:#f92672">&lt;-</span> <span style="color:#66d9ef">true</span>
         }
     }
-    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;Farmer doesn&#39;t hear a single moo anymore. All done!&#34;</span>)
-    farmertube <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#d14">&#34;yey!&#34;</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Farmer doesn&#39;t hear a single moo anymore. All done!&#34;</span>)
+    <span style="color:#a6e22e">farmertube</span> <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;yey!&#34;</span>
 }
 
-<span style="color:#998;font-style:italic">// The farm starts out with mooing cows that wants to be fed
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">runFarm</span>(numcows <span style="color:#458;font-weight:bold">int</span>) {
-    farmertube <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">chan</span> <span style="color:#458;font-weight:bold">string</span>)
-    mootube <span style="color:#000;font-weight:bold">:=</span> <span style="color:#0086b3">make</span>(<span style="color:#000;font-weight:bold">chan</span> Moo)
-    <span style="color:#000;font-weight:bold">for</span> cownum <span style="color:#000;font-weight:bold">:=</span> <span style="color:#099">0</span>; cownum &lt; numcows; cownum<span style="color:#000;font-weight:bold">++</span> {
-        <span style="color:#000;font-weight:bold">go</span> <span style="color:#900;font-weight:bold">cow</span>(cownum, mootube)
+<span style="color:#75715e">// The farm starts out with mooing cows that wants to be fed
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">runFarm</span>(<span style="color:#a6e22e">numcows</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">farmertube</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">string</span>)
+    <span style="color:#a6e22e">mootube</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">Moo</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">cownum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">cownum</span> &lt; <span style="color:#a6e22e">numcows</span>; <span style="color:#a6e22e">cownum</span><span style="color:#f92672">++</span> {
+        <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">cow</span>(<span style="color:#a6e22e">cownum</span>, <span style="color:#a6e22e">mootube</span>)
     }
-    <span style="color:#000;font-weight:bold">go</span> <span style="color:#900;font-weight:bold">farmer</span>(numcows, mootube, farmertube)
-    farmerSaid <span style="color:#000;font-weight:bold">:=</span> <span style="color:#000;font-weight:bold">&lt;-</span>farmertube
-    <span style="color:#000;font-weight:bold">if</span> farmerSaid <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#34;yey!&#34;</span> {
-        fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;All cows are happy.&#34;</span>)
+    <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">farmer</span>(<span style="color:#a6e22e">numcows</span>, <span style="color:#a6e22e">mootube</span>, <span style="color:#a6e22e">farmertube</span>)
+    <span style="color:#a6e22e">farmerSaid</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">farmertube</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">farmerSaid</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;yey!&#34;</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;All cows are happy.&#34;</span>)
     }
 }
 
-<span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
-    <span style="color:#900;font-weight:bold">runFarm</span>(<span style="color:#099">4</span>)
-    fmt.<span style="color:#900;font-weight:bold">Println</span>(<span style="color:#d14">&#34;done&#34;</span>)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">runFarm</span>(<span style="color:#ae81ff">4</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;done&#34;</span>)
 }
-</code></pre></td></tr></table>
-</div>
-</div>
-        </div>
-
-        
-
-
-        
-
-
-        <div class="post-meta meta-tags">
-            
-            <ul class="clearfix">
+</code></pre></div></div>
+        <div class="post_footer">
+          
+          <div class="meta">
+            <div class="info">
+              <span class="field tags">
                 
-                <li><a href='/tags/golang' target="_blank">golang</a></li>
+                  <div class="tag">
+                    
+                      <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1560192546631" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2171" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="160"><defs><style type="text/css"></style></defs><path d="M853.333333 597.333333h-183.466666l31.146666-170.666666H853.333333a42.666667 42.666667 0 0 0 0-85.333334h-136.96l29.44-162.56A42.666667 42.666667 0 0 0 709.973333 128a42.666667 42.666667 0 0 0-52.053333 34.986667L625.92 341.333333h-165.546667l29.44-162.56A42.666667 42.666667 0 0 0 453.973333 128a42.666667 42.666667 0 0 0-52.053333 34.986667L369.92 341.333333H170.666667a42.666667 42.666667 0 0 0 0 85.333334h183.466666l-31.146666 170.666666H170.666667a42.666667 42.666667 0 0 0 0 85.333334h136.96l-29.44 162.56A42.666667 42.666667 0 0 0 314.026667 896a42.666667 42.666667 0 0 0 52.053333-34.986667L398.08 682.666667h165.546667l-29.44 162.56a42.666667 42.666667 0 0 0 35.84 50.773333 42.666667 42.666667 0 0 0 52.053333-34.986667l32-178.346666H853.333333a42.666667 42.666667 0 0 0 0-85.333334zM413.866667 597.333333l31.146666-170.666666h165.12l-31.146666 170.666666z" fill="#909090" p-id="2172"></path></svg>
+                    
+
+                    <a href="https://hikaricp.github.io/tags/golang/">golang</a>
+                  </div>
                 
-            </ul>
-            
+              </span>
+            </div>
+          </div>
+          
         </div>
-    </article>
-    
-    
 
-    
-    
-    
-    
-
-</div>
-
-                    <footer id="footer">
-    <div>
-        &copy; 2022 <a href="https://hikaricp.github.io/">杨佳畅的博客 By 杨佳畅</a>
         
+        
+      </div>
+
     </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://www.flysnow.org/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
+
+  <a id="back_to_top" href="#" class="back_to_top"><span>△</span></a>
+</div>
+<footer class="footer">
+  <div class="footer_info">
+    <p class="author">
+      <a href="https://www.yuque.com/fredliang/refine">Designed</a> & <a href="https://github.com/fredliang44/hugo-theme-refine">Coded</a> With ❤️ by <a href="https://www.fredliang.cn">Fred Liang</a>
+    </p>
+
+    <p class="powered_by">
+      Powered By
+      <a rel="noreferrer noopener" href="" title="powerby" target="_blank">  </a>
+    </p>
+    
+    <div class="my_socials">
+      
+
+      <a href="https://hikaricp.github.io/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="remixicon-rss-fill"></i></a> 
     </div>
+
+    <p class="beian">
+      <a rel="noreferrer noopener" href="http://www.beian.miit.gov.cn" title="beian" target="_blank">  </a>
+    </p>
+
+    <div id="notify">
+      <div class="notify_wrapper">
+        <p id="notify_content"></p>
+      </div>
+    </div>
+  </div>
 </footer>
 
 
-    
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-<style type="text/css">
-div.highlight {
-    position: relative;
-    margin: 1em 0px;
-}
+<script src="https://hikaricp.github.io/js/jquery-3.4.1.slim.min.js"></script>
 
-.copy-code {
-    display: none;
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(78, 78, 78, 0.8);
-    border-radius: var(--radius);
-    padding: 0 5px;
-    font: inherit;
-    user-select: none;
-    cursor: pointer;
-    border: 0;
-    --radius: 8px;
-}
 
-div.highlight:hover .copy-code,pre:hover .copy-code {
-    display: block;
-}
+<script type="text/javascript" src="https://hikaricp.github.io/js/refine.min.eb26cbdc9c530f697048ddc0533a6b04c1a021c1df1fb74187735944c7099dfc9aea44d72250b5f7132e2393d76d3bd0ae465ee98d6d297d9438c2b7dda283cd.js" integrity="sha512-6ybL3JxTD2lwSN3AUzprBMGgIcHfH7dBh3NZRMcJnfya6kTXIlC19xMuI5PXbTvQrkZe6Y1tKX2UOMK33aKDzQ=="></script>
 
-</style>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
 
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerHTML = 'copy';
 
-        function copyingDone() {
-            copybutton.innerHTML = 'copied!';
-            setTimeout(() => {
-                copybutton.innerHTML = 'copy';
-            }, 2000);
-        }
 
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
+
+
+
+
+
+
+
+
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js", { scope: "/" }).then((reg) => {
+      reg.addEventListener("updatefound", () => {
+        
+        newWorker = reg.installing;
+        newWorker.addEventListener("statechange", () => {
+          
+          if (newWorker.state === "installed") {
+            if (navigator.serviceWorker.controller) {
+              console.log("Service Worker Updated");
+              showNotify(
+                "网站有更新，点击<a href='" +
+                  window.location.href +
+                  "'>刷新当前页面</a>获取最新版"
+              );
+              return 0;
             }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
+          }
         });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
-            
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-            
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
-            
-            codeblock.parentNode.appendChild(copybutton);
-        }
+      });
     });
+
+    navigator.serviceWorker.ready.then(function (registration) {
+      console.log("Service Worker Ready");
+    });
+  }
+
+  function showNotify(content) {
+    let notify = document.getElementById("notify");
+    let body = document.getElementById("notify_content");
+
+    notify.setAttribute("style", "display:block; bottom: 20px");
+    setTimeout(hideNotify, 10000);
+    body.innerHTML = content;
+  }
+
+  function hideNotify() {
+    let notify = document.getElementById("notify");
+    notify.setAttribute("style", "bottom: -100px");
+
+    setTimeout(notify.setAttribute("style", "display:none"), 2000);
+  }
 </script>
 
 
 
 
 
-                </div>
 
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://hikaricp.github.io/">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" title="Go语言基础" target="_blank">Go语言基础</a>
-    </li>
-    
-    <li>
-        <a href="https://hikaricp.github.io/post/springboot/" title="SpringBoot实战" target="_blank">SpringBoot实战</a>
-    </li>
-    
-    <li>
-        <a href="https://hikaricp.github.io/post/first/" title="我的第一篇文章" target="_blank">我的第一篇文章</a>
-    </li>
-    
-</ul>
-    </section>
 
-    
 
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://hikaricp.github.io/categories/go/">Go (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/java/">Java (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/spring/">Spring (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/springboot/">SpringBoot (1)</a></li>
-    
-    <li><a href="https://hikaricp.github.io/categories/%E7%AC%AC%E4%B8%80/">第一 (1)</a></li>
-    
-</ul>
-    </section>
+<script src="https://hikaricp.github.io/js/remember-scroll.min.js"></script>
+<script>
 
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://hikaricp.github.io/tags/golang/">golang</a>
-    
-    <a href="https://hikaricp.github.io/tags/spring/">Spring</a>
-    
-</div>
-    </section>
+new RememberScroll({
+  pageKey: window.location.pathname,
+  maxLength: 100
+})
+</script>
 
-    
+<script>
+    const player = Array.from(document.querySelectorAll('video')).map(p => new Plyr(p));
+</script>
 
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="https://hikaricp.github.io/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
-</div>
-            </div>
-        </div>
-    </div>
 </body>
-
 </html>

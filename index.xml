@@ -1,37 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>杨佳畅的博客</title>
+    <title>杨佳畅 Blog</title>
     <link>https://hikaricp.github.io/</link>
-    <description>Recent content on 杨佳畅的博客</description>
+    <description>Recent content on 杨佳畅 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 30 Jul 2022 00:32:34 +0800</lastBuildDate><atom:link href="https://hikaricp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://hikaricp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
-      <title>Go语言基础</title>
-      <link>https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Sat, 30 Jul 2022 00:32:34 +0800</pubDate>
+      <title>Posts</title>
+      <link>https://hikaricp.github.io/posts/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hikaricp.github.io/post/go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/</guid>
-      <description>记录第一次的美好</description>
+      <guid>https://hikaricp.github.io/posts/</guid>
+      <description></description>
+      <content></content>
     </item>
     
     <item>
-      <title>SpringBoot实战</title>
-      <link>https://hikaricp.github.io/post/springboot/</link>
+      <title>Posts</title>
+      <link>https://hikaricp.github.io/post/</link>
       <pubDate>Sat, 30 Jul 2022 00:32:34 +0800</pubDate>
       
-      <guid>https://hikaricp.github.io/post/springboot/</guid>
-      <description>摘要信息</description>
-    </item>
-    
-    <item>
-      <title>我的第一篇文章</title>
-      <link>https://hikaricp.github.io/post/first/</link>
-      <pubDate>Sat, 30 Jul 2022 00:32:34 +0800</pubDate>
-      
-      <guid>https://hikaricp.github.io/post/first/</guid>
-      <description>记录第一次的美好</description>
+      <guid>https://hikaricp.github.io/post/</guid>
+      <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -41,6 +37,8 @@
       
       <guid>https://hikaricp.github.io/about/</guid>
       <description>记录生活</description>
+      <content>&lt;p&gt;记录生活&lt;/p&gt;
+</content>
     </item>
     
     <item>
@@ -50,6 +48,7 @@
       
       <guid>https://hikaricp.github.io/categories/</guid>
       <description></description>
+      <content></content>
     </item>
     
     <item>
@@ -59,6 +58,7 @@
       
       <guid>https://hikaricp.github.io/archives/</guid>
       <description></description>
+      <content></content>
     </item>
     
   </channel>
