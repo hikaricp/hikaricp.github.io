@@ -97,4 +97,4 @@ self.addEventListener("activate", function (event) {
 
 workbox.precaching.precacheAndRoute(PRECACHE_LIST);
 
-/**   @preserve  latest built at 2022-10-16 21:12:27.521119 +0800 CST m=+0.047522210 **/
+/**   @preserve  latest built at 2022-10-16 21:15:16.357254 +0800 CST m=+0.083578459 **/

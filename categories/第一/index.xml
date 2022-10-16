@@ -16,14 +16,5 @@
       <description>记录第一次的美好</description>
     </item>
     
-    <item>
-      <title>我的第一篇文章</title>
-      <link>https://hikaricp.github.io/post/first/</link>
-      <pubDate>Sat, 30 Jul 2022 00:32:34 +0800</pubDate>
-      
-      <guid>https://hikaricp.github.io/post/first/</guid>
-      <description>记录第一次的美好</description>
-    </item>
-    
   </channel>
 </rss>
